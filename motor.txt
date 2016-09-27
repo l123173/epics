@@ -1,0 +1,12 @@
+motor的example需要重新编译
+
+编译areadetector的时候，configure里面有例子，照着修改就可以了。
+
+
+motor没有错了以后，envpath 即可
+值 
+epicsEnvSet("ARCH","linux-x86_64")
+epicsEnvSet("TOP","/opt/epics/synApps_5_8/support/motor-6-10")
+epicsEnvSet("EPICS_BASE","/opt/epics/base")
+epicsEnvSet("STREAM","/opt/epics/synApps_5_8/support/stream-2-6a")
+epicsEnvSet("ASYN","/opt/epics/synApps_5_8/support/asyn-4-26")
