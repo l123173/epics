@@ -1,0 +1,31 @@
+/opt/epics/synApps_5_8/support/asyn-4-26/bin/linux-x86_64/makeSupport.pl -t streamSCPI Aries
+cd configure
+sed -i '/^ASYN =/c ASYN=/opt/epics/synApps_5_8/support/asyn-4-26' RELEASE 
+echo STREAM = /opt/epics/synApps_5_8/support/stream-2-6a >> ./RELEASE 
+sed -i '/^#CROSS_COMPILER_TARGET_ARCHS =/c CROSS_COMPILER_TARGET_ARCHS =' CONFIG  #CROSS_COMPILER_TARGET_ARCHS 要打全
+rm -rf configure
+/opt/epics/base/bin/linux-x86_64/makeBaseApp.pl -t ioc Aries
+/opt/epics/base/bin/linux-x86_64/makeBaseApp.pl -t ioc -i Aries
+cd configure 
+echo -e "STREAM = /opt/epics/synApps_5_8/support/stream-2-6a\nASYN=/opt/epics/synApps_5_8/support/asyn-4-26" >> ./RELEASE #加-e来表示换行有用
+sed -i '/^#CROSS_COMPILER_TARGET_ARCHS =/c CROSS_COMPILER_TARGET_ARCHS =' CONFIG_SITE  #CROSS_COMPILER_TARGET_ARCHS 要打全
+cd ../AriesApp/src/
+#先不写，见下面注释sed -i '/#=============/i\Aries_DBD += stream.dbd\nAries_DBD += drvAsynSerialPort.dbd\nAries_LIBS += stream asyn' Makefile 
+$ change the DB_INSTGALL += devxxxx.db and DB_INSTLL += $(TOP)/xxxSup/devxx.proto   to DB += devxxxx.db and DB += $(TOP)/xxxSup/devxx.proto in xxxSup/Makefile
+遇到过这种问题：
+Device using undefined record type 'ao', place-holder created
+Device using undefined record type 'ai', place-holder created
+Device using undefined record type 'bo', place-holder created
+Device using undefined record type 'bi', place-holder created
+reason是里面有地方重复写了几个,App/src/Makefile里面重复写了写东西。 由此可以看出来，13行的内容可以不加
+
+
+# st.cmd 文件也要修改，一cp就忘记了。
+
+port 里面的port廷重要的。应该是和serial要对应
+还有每次移植的时候，db文件中对应的也要修改@dev这些
+
+
+调试的时候，这两句加上自己写的那两句，留意下,2 ge o !
+asynSetTraceIOMask(“myPort”,0,2)
+asynSetTraceMask(“myPort”,0,255)
