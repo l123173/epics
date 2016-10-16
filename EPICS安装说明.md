@@ -40,10 +40,15 @@ make 编译通过即可 base and extensions安装
 
 ######安装过程：
 
+进入re2c官网，Download部分下载re2c（版本随意）， ./configure Make Make install 安装完成 修改文件信息
+安装如下软件包（含命令）
+以下命令适用于类redhat操作系统，如redhat,Fedora,Centos
+yum install perl libXt-devel libtermcap-devel libXp-devel flex yum install g++ autoconf automake readline-devel yum install gcc-c++ giflib-devel libXtst-devel yum install libX* yum install perl-ExtUt* openmotif-devel yum install perl-Pod-Checker yum install xorg-x11-xbitmaps yum install libmotif-devel libmu-devel X11proto-print-devel 编译
+
 解压缩软件
 按照目录结构，解压缩base，解压缩extensionsf
 
-安装各种软件，re2c，设置yum源（看情况）  [此部分见后面]
+安装各种软件，re2c，设置yum源（看情况）
 base 直接make，应该不会有问题。
 
 extensions/configure/目录下编辑RELEASE文件，修改EPICS_BASE和EPICS_EXTENSIONS 的值为正确路径（可使用vi或者gedit命令，参照所需要的基本知识部分）
@@ -56,36 +61,32 @@ vi ～/.bash_profile
 下载msi,解压缩到extensions src目录 修改Makefile文件，在MSI所在行后面添加对应的版本号，如1-7 make 无报错即可
 
 安装synapps
-手动修改信息（见后面论述）。自动的参考这个命令
+手动修改信息
+synapps下所有模块的RELEASE文件,EPICS_BASE，Extension和SUPPORT的值（很多个文件）
+修改出现的版本信息编号错误（根据make返回信息）
+
+自动的参考这个命令
 sed -i "s/EPICS_BASE=\/home\/oxygen\/MOONEY\/epics\/bazaar\/base-3.15/EPICS_BASE=\/opt\/base/g" `grep EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.15 -rl /opt/synApps_5_8/support/`
 
 
+caputRecorder.o 错误，去网上下个新的
 
-
-进入re2c官网，Download部分下载re2c（版本随意）， ./configure Make Make install 安装完成 修改文件信息
-安装如下软件包（含命令）
-以下命令适用于类redhat操作系统，如redhat,Fedora,Centos
-yum install perl libXt-devel libtermcap-devel libXp-devel flex yum install g++ autoconf automake readline-devel yum install gcc-c++ giflib-devel libXtst-devel yum install libX* yum install perl-ExtUt* openmotif-devel yum install perl-Pod-Checker yum install xorg-x11-xbitmaps yum install libmotif-devel libmu-devel X11proto-print-devel 编译
-
-准备工作结束以后 在/base目录下make，等待结束，没有报错即是成功，或者base目录中出现bin文件，即为成功； 在/extensions 目录下make，没有报错即extensions安装成功 或者extensions目录下出现bin文件。 CSS 安装
-
-直接下载安装(双击即可) http://cs-studio.sourceforge.net/ 需要更新java版本 SynApps 安装
-
-
-synapps下所有模块的RELEASE文件
-
-修改EPICS_BASE，Extension和SUPPORT的目录位置（很多个文件）
-修改出现的版本信息编号错误（根据make返回信息）
-5_8 需要修改caputRecorder（替换掉）
-Make 不报错即可
-
-caputRecorder.o 错误，去网上下在caputecorder-master，替换其中的caputRecorderApp文件，不要全部替换。
-
-配置areaDecteror 文件,里头有说明文件，照着作 当然还有错误需要修改配置文件
+areaDecteror 也会报错，需要hdf5比较麻烦，花时间，建议赶急的话，先屏蔽.
+areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容，从上到下
 
 Error napi.o do as instruction 注意local.x86_64 注意这个 64
 
 tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files/ libxml2 安装(dnf ) 戴上-devel就可以了，不带不行）
+
+Make 不报错即可
+
+
+准备工作结束以后 在/base目录下make，等待结束，没有报错即是成功，或者base目录中出现bin文件，即为成功； 在/extensions 目录下make，没有报错即extensions安装成功 或者extensions目录下出现bin文件。 CSS 安装
+
+直接下载安装(双击即可) http://cs-studio.sourceforge.net/ 需要更新java版本
+
+
+
 
 Done
 
