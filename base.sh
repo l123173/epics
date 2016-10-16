@@ -103,7 +103,7 @@ cd re2c-0.13.6   #change name lager
 ./configure --prefix=$re2c_file
 make && make install || echo -e "\033[32m make fail \033[0m"
 /usr/bin/rm -rf re2c-0.13.6  #change name lager
-/usr/bin/rm re2c.tar.gz
+/usr/bin/rm -rf re2c.tar.gz
 
 }
 
