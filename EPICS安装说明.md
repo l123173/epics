@@ -77,6 +77,7 @@ areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容�
 
 Error napi.o do as instruction 注意local.x86_64 注意这个 64
 
+hdf5 照着说明
 tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files/ libxml2 安装(dnf ) 戴上-devel就可以了，不带不行）
 
 Make 不报错即可
