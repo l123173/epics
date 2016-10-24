@@ -68,8 +68,9 @@ synapps下所有模块的RELEASE文件,EPICS_BASE，Extension和SUPPORT的值（
 自动的参考这个命令
 sed -i "s/EPICS_BASE=\/home\/oxygen\/MOONEY\/epics\/bazaar\/base-3.15/EPICS_BASE=\/opt\/base/g" `grep EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.15 -rl /opt/synApps_5_8/support/`
 
-
+install内部文档有详细的说明
 caputRecorder.o 错误，去网上下个新的
+
 
 areaDecteror 也会报错，需要hdf5比较麻烦，花时间，建议赶急的话，先屏蔽.
 areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容，从上到下
