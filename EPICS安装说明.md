@@ -78,8 +78,10 @@ libNeXus.so （自动安装的路径问题）
 libtiff  自己装吧
 
 https://github.com/areaDetector/areaDetector/blob/master/INSTALL_GUIDE.md
-错误！以上重来
+libNeXus.so 错误！以上重来
+libNeXus.so
 修各种信息
+
 Error napi.o do as instruction 注意local.x86_64 注意这个 64
 
 hdf5 照着说明
