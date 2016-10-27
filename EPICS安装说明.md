@@ -74,7 +74,12 @@ caputRecorder.o 错误，去网上下个新的
 
 areaDecteror 也会报错，需要hdf5比较麻烦，花时间，建议赶急的话，先屏蔽.
 areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容，从上到下
+libNeXus.so （自动安装的路径问题）
+libtiff  自己装吧
 
+https://github.com/areaDetector/areaDetector/blob/master/INSTALL_GUIDE.md
+错误！以上重来
+修各种信息
 Error napi.o do as instruction 注意local.x86_64 注意这个 64
 
 hdf5 照着说明
