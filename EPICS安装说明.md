@@ -60,8 +60,8 @@ vi ～/.bash_profile
 安装msi到 extensions（下载地址见之前部分）
 下载msi,解压缩到extensions src目录 修改Makefile文件，在MSI所在行后面添加对应的版本号，如1-7 make 无报错即可
 
-安装synapps
-5_8最好的适配版本是3.14
+安装synapps    
+5_8最好的适配版本是3.14    
 手动修改信息
 synapps下所有模块的RELEASE文件,EPICS_BASE，Extension和SUPPORT的值（很多个文件）
 修改出现的版本信息编号错误（根据make返回信息）
@@ -90,7 +90,7 @@ tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files
 
 Make 不报错即可
 
-关于motor，如果编译example，如果是3.14错误可能会少，但是如果是3.15，需要使用seq-2-2-3，下载需要最新的motor（https://github.com/epics-modules/motor）
+关于motor，如果编译example，如果是3.14错误可能会少，但是如果是3.15，需要使用seq-2-2-3，下载需要最新的motor（https://github.com/epics-modules/motor）    
 否则会出现devxxxxxx.dbd的问题，哈有一个duplicate的问题，那就删除motorExapp中的PI文件中的PI_xxx文件的中头两行就行。
 
 
