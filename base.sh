@@ -61,8 +61,9 @@ function uncompress(){  # 解压缩文件
 conf()    #配置相关信息
 {
   
-    if [ -w $Dir/base$file ];then
+    if [ -w $Dir/base$file ];then  #file=/configure/os/CONFIG_SITE.Common.linux-x86_64
       sed -i "s/$var/#$var/" $Dir/base$file #have the address, no need to change dir
+      #var='COMMANDLINE_LIBRARY = READLINE'
     else
       chmod +w $Dir/base$file
     sed -i "s/$var/#$var/" $Dir/base$file
