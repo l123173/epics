@@ -77,17 +77,24 @@ yum install perl libXt-devel libtermcap-devel libXp-devel flex yum install g++ a
 Make 不报错即可
 
 
-install内部文档有详细的说明 caputRecorder.o 错误，去网上下载caputecorder-master，替换其中的caputRecorderApp文件，不要全部替换
+install内部文档有详细的说明 caputRecorder.o 错误，去网上下载caputecorder-master，替换其中的caputRecorderApp文件，不要全部替换。（以后的两次我都试了，不需要替换，直接用里面的就可以了。只是有一点，各个RELEASE打头的文件，里面的路径信息要一样。）  
 
-areaDecteror 也会报错，需要hdf5比较麻烦，花时间. areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容，从上到下 libNeXus.so （自动安装的路径问题） .  
-libtiff 自己装吧,tiff 安装，不yao指定位置.  
+areaDecteror 也会报错，需要hdf5比较麻烦，花时间. areaDecotr 文件里面有安装说明文档，仔细阅读安装,很多内容，从上到下 libNeXus.so （自动安装的路径问题） .      说明文档里面的那个增加信息，boot YES NO 的信息可以不用增加。    
+
+各个小文件，指定安装路径。  
+
+libtiff 自己装吧,tiff 安装，不yao指定位置，不需要安装最新的那个，旧的3.8.2就足够了。  
+
 自动安装 libjpeg http://www.ijg.org/files/ libxml2 安装(dnf ) 戴上-devel就可以了，不带不行）
 
 https://github.com/areaDetector/areaDetector/blob/master/INSTALL_GUIDE.md libNeXus.so 错误！以上重来 libNeXus.so 修各种信息
 
-Error napi.o do as instruction 注意local.x86_64 注意这个 64
+Error napi.o do as instruction 注意CONFIG_SITE.local.x86_64 注意这个 64
 
-hdf5 照着说明 tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files/ libxml2 安装(dnf ) 戴上-devel就可以了，不带不行）
+Error NDFileTiff.o  是那个TIFF没有安装。  
+
+hdf5 照着说明 tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files/  
+libxml2 安装(dnf ) 戴上-devel就可以了，不带不行
 
 Make 不报错即可
 
