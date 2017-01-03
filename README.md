@@ -95,17 +95,28 @@ Error napi.o do as instruction 注意CONFIG_SITE.local.x86_64 注意这个 64
 
 Error NDFileTiff.o  是那个TIFF没有安装。  
 
-hdf5 照着说明，比如修改asyn的版本号，修改base，support的路径，等等。  
+hdf5 照着说明，比如修改asyn的版本号，修改base，support的路径，等等。   
+（最近一次的成功安装，暂记录于下）  好像参照areaDetector的说明，去git clone重新安装了areaDetector（因为以前的经验都是不重新装不行）。
+cp EXAMPLE_RELEASE_LIBS.LOCAL RELEASE_LIBS.LOCAL  
+cp EXAMPLE_RELEASE_PATHS.local RELEASE_PATHS.local  
+cp EXAMPLE_RELEASE_PRODS.local RELEASE_PRODS.local  
+cp EXAMPLE_RELEASE_CONFIG.local RELEASE_CONFIG.local  
 
-tiff 安装，不要指定位置，自动安装 libjpeg http://www.ijg.org/files/  
+edit RELEASE_PATHS.local support，base，areaDetector地址修改    
+RELEASE_LIBS.loal  ASYN 地址修改  
+RELEASE_PRODS.local  版本号修改  
+CONFIG_SITE.local.linux86_64 修改，注意这个64   
+
+tiff 安装，不要指定位置，别用太新的版本，自动安装 libjpeg http://www.ijg.org/files/  
 libxml2 安装(dnf ) 戴上-devel就可以了，不带不行
 
 Make 不报错即可
 
+
 关于motor，如果编译example，如果是3.14错误可能会少，但是如果是3.15，需要使用seq-2-2-3，下载需要最新的motor（https://github.com/epics-modules/motor）
-否则会出现devxxxxxx.dbd的问题，哈有一个duplicate的问题，那就删除motorExapp中的PI文件中的PI_xxx文件的中头两行就行。
+否则会出现devxxxxxx.dbd的问题，哈有一个duplicate的问题，那就删除motorExapp中的PI文件中的PI_xxx文件的中头两行就行。  
 
-
+AREIS安装，依照说明即可  
 
 CSS 安装
 
