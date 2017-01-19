@@ -65,12 +65,14 @@ yum install perl libXt-devel libtermcap-devel libXp-devel flex yum install g++ a
 
 
 
-安装synapps
+安装synapps  
+
+更换mnotor，修改里面的各种信息，添加相应模块，更换seq-2-2-3（勿用点）  
 
 5_8最好的适配版本是3.14.12.5
 手动修改信息 synapps下所有模块的RELEASE文件,EPICS_BASE，Extension和SUPPORT的值（很多个文件） 修改出现的版本信息编号错误（根据make返回信息）
 
-自动的参考这个命令 sed -i "s/EPICS_BASE=\/home\/oxygen\/MOONEY\/epics\/bazaar\/base-3.15/EPICS_BASE=\/opt\/base/g" grep EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.15 -rl /opt/synApps_5_8/support/
+自动的参考这个命令 sed -i "s/EPICS_BASE=\/home\/oxygen\/MOONEY\/epics\/bazaar\/base-3.15/EPICS_BASE=\/opt\/base/g" ·grep EPICS_BASE=/home/oxygen/MOONEY/epics/bazaar/base-3.15 -rl /opt/synApps_5_8/support/·
   
 已经有了脚本，可以参考部分。  
 
