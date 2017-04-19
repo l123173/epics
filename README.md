@@ -13,6 +13,8 @@ http://mirrors.163.com/.help/ 网站有很好的介绍，跟着操作即可，�
 
 Base http://www.aps.anl.gov/epics/base/index.php 建议下载3.15.3 不要使用3。14。12。1 太多问题了，太老
 
+cap5.html问题，可以不管，或者修改src、Makefile文件相关地方
+
 extensions http://www.aps.anl.gov/epics/extensions/index.php 建议下载Extensions build configure files (R3.14)
 CSS http://cs-studio.sourceforge.net/
 synApp https://www1.aps.anl.gov/BCDA/synApps/Where-to-find-it
