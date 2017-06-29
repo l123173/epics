@@ -6,14 +6,16 @@ caj的网址  https://github.com/epics-base/caj
 
 jac  也是一样的.
 
-mysql的安装方法！！！！
+mysql的安装方法！！！！（不要去下载，完全按照这样做）
 https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/
 一些参考
 http://www.cnblogs.com/ivictor/p/5142809.html
 
 小电脑mysql的数据库密码：-qw(LLL3Mkkk
 
+参考这里（http://www.aps.anl.gov/epics/tech-talk/2016/msg00522.php），又多下载了一个connetc-java的文件，这里是如何安放文件的方法
+http://blog.csdn.net/a469402857/article/details/8279669
 
-
+********************************************
 这个网址用来查询一些差的包，安装
 http://fr.rpmfind.net/linux/rpm2html/search.php?query=mecab-ipadic&submit=Search+...&system=&arch=
