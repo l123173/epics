@@ -1,0 +1,9 @@
+arclinux  貌似可以自己定制系统
+
+
+caj的网址  https://github.com/epics-base/caj
+（依照安装说明）先安装mvn，安装好mvn以后。 解压缩到目录，进入caj目录，在mvn xxxx就可以。
+
+jac  也是一样的.
+
+
