@@ -27,3 +27,6 @@ http://fr.rpmfind.net/linux/rpm2html/search.php?query=mecab-ipadic&submit=Search
 VDCT 需要这个网站下载最新版本的
 https://github.com/epics-extensions/VisualDCT/releases
 网址里面的releases一定要，要不去的地方不一样。
+
+这个tech-talk 有VisualDCT的安装脚本，直接运行可以安装。
+http://www.aps.anl.gov/epics/tech-talk/2016/msg01576.php
