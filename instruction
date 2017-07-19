@@ -21,3 +21,9 @@ http://blog.csdn.net/a469402857/article/details/8279669
 ********************************************
 这个网址用来查询一些差的包，安装
 http://fr.rpmfind.net/linux/rpm2html/search.php?query=mecab-ipadic&submit=Search+...&system=&arch=
+
+
+
+VDCT 需要这个网站下载最新版本的
+https://github.com/epics-extensions/VisualDCT/releases
+网址里面的releases一定要，要不去的地方不一样。
