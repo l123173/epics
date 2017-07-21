@@ -18,6 +18,21 @@ mysql 登陆命令    bin/mysql -uroot -p  （密码）
 参考这里（http://www.aps.anl.gov/epics/tech-talk/2016/msg00522.php），又多下载了一个connetc-java的文件，这里是如何安放文件的方法
 http://blog.csdn.net/a469402857/article/details/8279669
 
+
+忘记mysql的密码：
+http://www.cnblogs.com/allenblogs/archive/2010/08/12/1798247.html
+不过 新的mysql已经不用  Password 这个关键字了，改成authentication_string，所以用以下这句话替代，反正不替代，会报错的。
+update user set authentication_string=password('') where user='root' and host='localhost'; 
+
+mysql操作指南：
+http://www.cnblogs.com/kerrycode/archive/2015/06/28/4606400.html
+mysql>show databases;//可以查看有哪些数据库,返回数据库名(databaseName)
+mysql>use databaseName;  //更换当前使用的数据库
+mysql>show tables; //返回当前数据库下的所有表的名称
+mysql> select database();  //查看当前使用的数据库
+mysql> show variables  like 'port'; //查看数据库使用端口
+mysql> show variables like 'character%'; //查看数据库编码（UTF-8）
+
 ********************************************
 这个网址用来查询一些差的包，安装
 http://fr.rpmfind.net/linux/rpm2html/search.php?query=mecab-ipadic&submit=Search+...&system=&arch=
