@@ -9,12 +9,12 @@ jac  也是一样的.
 mysql的安装方法！！！！（不要去下载，完全按照这样做）
 https://www.if-not-true-then-false.com/2010/install-mysql-on-fedora-centos-red-hat-rhel/
 mysql 的一些参考
-http://blog.csdn.net/kuluzs/article/details/51924374   （修改密码  的内容！！重要）
+http://blog.csdn.net/kuluzs/article/details/51924374   （修改密码的内容！！重要   包含了设置，修改密码）
 //http://www.cnblogs.com/ivictor/p/5142809.html
 
 
 mysql 登陆命令    bin/mysql -uroot -p  （密码）
-小电脑mysql的数据库密码：-qw(LLL3Mkkk
+小电脑mysql数据库root密码：123
 
 参考这里（http://www.aps.anl.gov/epics/tech-talk/2016/msg00522.php），又多下载了一个connetc-java的文件，这里是如何安放文件的方法
 http://blog.csdn.net/a469402857/article/details/8279669
