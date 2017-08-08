@@ -35,6 +35,10 @@ mysql> show variables  like 'port'; //查看数据库使用端口
 mysql> show variables like 'character%'; //查看数据库编码（UTF-8）
 
 select * from dbo.Users      查找表的内容；
+
+
+http://www.cnblogs.com/fnng/archive/2011/07/18/2110023.html  这个中文的eclipse 连接数据库的操作，没有基础看英文的比较困难，
+这个教程几个地方改一下，1.第三行 publicstaticvoid   中间2个空格。 2. 账号密码改过来。  3. 最后面的user 和 name 要改成你的table名和table 里的内容
 ********************************************
 这个网址用来查询一些差的包，安装
 http://fr.rpmfind.net/linux/rpm2html/search.php?query=mecab-ipadic&submit=Search+...&system=&arch=
