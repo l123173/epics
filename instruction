@@ -51,3 +51,11 @@ https://github.com/epics-extensions/VisualDCT/releases
 
 这个tech-talk 有VisualDCT的安装脚本，直接运行可以安装。
 http://www.aps.anl.gov/epics/tech-talk/2016/msg01576.php
+
+
+http://www.jb51.net/softjc/264914.html   firefox 自动刷新的插件
+***********************
+
+scaler 那个东西是属于std的，pv调用的关键语句是 dbLoadRecords("$(STD)/stdApp/Db/scaler.db","P=xxx:,S=scaler1,OUT=@asyn(serial974 0 0),DTYP=Asyn Scaler,FREQ=10,TP=1,TP1=0.5,PR1=1,CONT=1")
+
+其中@asyn（serial974 0 0）中的serial974是 initScaler974 的
