@@ -1,0 +1,8 @@
+after new driver：
+比如std，需要在stdAPP/src/makefile 里面增加相应的内容
+这还没完，还需要在 stdSupport.dbd,  中增加  registrar(CT08ERegister) 注册一下
+
+
+如果是motor 那么exapp和app都要加
+
+最后还要在ioc中增加！
