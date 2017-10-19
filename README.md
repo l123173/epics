@@ -1,3 +1,12 @@
+下载base，extensions，msi，css，java，synapps
+~/.basr_profile  的EPICS_HOST_ARCH，EPICS_BASE,EPICS_ENTENSIONS
+
+问题：
+base 错误：epicsReadline.c        安装 yum install readline-devel
+
+cap.O   修改base/Makefile ，注释掉perl的两行
+
+
 # 说明：只是一个初版本的安装说明，如果有遇到什么没有涉及的问题，可以联系作者予以解决，改进；
 
 以下内容均在脚本bash.sh中体现，可以直接运行脚本安装，节省时间。 自动安装，运行脚本方法（适用于centos，redhat，fedora等版本）：
@@ -52,6 +61,8 @@ extensions/configure/目录下编辑RELEASE文件，修改EPICS_BASE和EPICS_EXT
 
 修改/etc/profile文件添加环境变量 EPICS_HOST_ARCH=linux-x86_64(32位系统输入linux-x86)，EPICS_BASE，EPICS_EXTENSIONS为相应的目录
 vi ～/.bash_profile
+
+
 
 安装如下软件包（含命令）
 以下命令适用于类redhat操作系统，如redhat,Fedora,Centos
