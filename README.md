@@ -10,6 +10,7 @@ fatal error: readline/readline.h: No such file or directory
 2. 没有gcc
 解决方法： 安装 gcc-c++
 
+3 下载perl
 
 下载base，extensions，msi，css，java，synapps
 ~/.basr_profile  的EPICS_HOST_ARCH，EPICS_BASE,EPICS_ENTENSIONS
