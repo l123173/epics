@@ -1,0 +1,4 @@
+VNC的使用，
+首先下载vnc，有的时候还需要下载tigervnc-server
+下载完了以后，关闭防火墙，iptables 或者 firewalled，使用命令systemctl stop xxxx 或者 service 
+然后在启动vnc  |（待完善）
