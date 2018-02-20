@@ -1,5 +1,20 @@
 %s的使用，一个是默认的长度限制，一个是不能遇到空格
 
-
-
 in "%41c"; 这种用法就是41个character
+
+
+for example:
+record(longin, "TEM") {
+      field(DESC, "test for upstairs tcpip")
+      field(DTYP, "stream")
+      field(INP,  "@devtemp.proto get_high $(PORT) $(A)")
+}
+
+get_tem {
+     MaxInput = 7;           #因为没有Terminator，所以写个这个，防止读取超时
+     out "\xFE\x04\x00\x00\x00\x01\x25\xC5";    #发送 fe 04 00 00 00 01 25 c5
+     in 0xfe 0x04 0x02 "%02r%*02r";        #  接受 fe 04 02 07 ac af 69  （07 ac是需要的，fe 04 02 是固定的）
+}
+#说明："%2r" (big endian signed) or "%02r" (big endian unsigned), "%#2r" (little endian signed) or "%#02r" (little endian unsigned). 
+
+出来的结果直接是10 进制的，是将07ac转变成了10进制
