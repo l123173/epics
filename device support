@@ -1,0 +1,251 @@
+https://epics.anl.gov/tech-talk/2015/msg01276.php   这是一个多fun的例子
+http://www-linac.kek.jp/epics/second/   kek例子 (经过测试，其实并不一定按照例子中的-p,-a,直接tit的顺序就够了。)
+http://blog.csdn.net/creazyapple/article/details/17240145     blog 简述
+
+
+文件叫NewRT
+**********************
+NewRTApp/
+bin/
+configure/
+db/
+dbd/
+iocBoot/
+lib/
+Makefile
+~                  
+
+
+
+st.cmd
+*********
+#!../../bin/linux-x86_64/NewRT
+
+## You may have to change NewRT to something else
+## everywhere it appears in this file
+
+< envPaths
+
+cd "${TOP}"
+## Register all support components
+dbLoadDatabase("dbd/NewRT.dbd",0,0)
+NewRT_registerRecordDeviceDriver(pdbbase)
+
+## Load record instances
+dbLoadRecords("db/Longin.db","user=lyx")
+
+
+cd "${TOP}/iocBoot/${IOC}"
+iocInit()
+
+## Start any sequence programs
+#seq sncNewRT,"user=lyx"
+~                                        
+
+
+devLongin.c
+**************************
+#include <stddef.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "alarm.h"
+#include "cvtTable.h"
+#include "dbDefs.h"
+#include "dbAccess.h"
+#include "recGbl.h"
+#include "recSup.h"
+#include "devSup.h"
+#include "longinRecord.h"   //
+#include "aiRecord.h"
+#include "aoRecord.h"
+#include "link.h"
+#include "epicsExport.h"
+//#include "devLongin.h"    //
+
+static long init_record();  //add the () and ;
+static long read_longin();  //the same with following
+
+struct {
+        long            number;
+        DEVSUPFUN       report;
+        DEVSUPFUN       init;
+        DEVSUPFUN       init_record;
+        DEVSUPFUN       get_ioint_info;
+        DEVSUPFUN       read_longin;      // adapt with char or others
+} devLongin = {
+        5,            //一旦修改函数数量，这个地方要跟着改
+        NULL,
+        NULL,
+        init_record,
+        NULL,
+        read_longin    // 最后一个没有逗号 "'"
+};                     // add the ;  记得有引号
+epicsExportAddress(dset,devLongin);  记得有这个！！
+
+
+/************************************/
+/*         Longin Record            */
+/************************************/
+
+
+long init_record(struct longinRecord *pli){
+        pli->udf = FALSE;
+        return 0;  //need ()?
+}
+
+long read_longin(struct longinRecord *pli)
+{
+//      if(pli->inp.type = CONSTANT){
+//      }
+        struct vmeio *pvmeio = (struct vmeio *) &(pli->inp.value);
+        char *parm = pvmeio->parm;
+        if(strcmp(parm,"Hello World")){
+                pli->val = 50;
+                printf("%d\n",pli->val);
+        }
+        else
+        {
+                pli->val = 20;
+                printf("%d\n",pli->val);
+        }
+        return 0;   //return 2 he return 0;return 2 is normal for else
+
+/*  this works find also
+        pli->udf = FALSE;
+        pli->val = 50;
+        return 0;
+*/
+}
+
+/////////////////////////////////////
+/////////////// for ai///////////////
+/////////////////////////////////////
+static long read_ai();
+
+struct{
+        long number;
+        DEVSUPFUN report;
+        DEVSUPFUN init;
+        DEVSUPFUN init_record;
+        DEVSUPFUN get_ioint_info;
+        DEVSUPFUN read_ai;
+} devAi = {
+        5,
+        NULL,
+        NULL,
+        init_record,
+        NULL,
+        read_ai
+};
+epicsExportAddress(dset,devAi);   //第二个也不要把它忘了
+
+long read_ai(struct aiRecord *pai)    //where to add read_ai 在struct开始，还是后面单独加？
+{
+//      if(pai->inp.type == GPIB_IO)
+//      {
+                struct gpibio *pgpibio = (struct gpibio *) &(pai->inp.value);  //means? it should be gpib
+//              char *parm = pai->parm;
+                printf("the parm is %s\n",pgpibio->parm);
+//      }
+        return 0;
+}
+
+
+Longin.dbd (no dev 字样！)
+*****************************
+device(longin,CONSTANT,devLongin,"New-RT-Device-Support")
+device(ai,GPIB_IO,devAi,"New-RT-Device-Support")
+
+src Makefile
+***************************
+TOP=../..
+
+include $(TOP)/configure/CONFIG
+#----------------------------------------
+#  ADD MACRO DEFINITIONS AFTER THIS LINE
+#=============================
+
+LIBRARY_IOC += Longin
+DBD += Longin.dbd
+Longin_SRCS += devLongin.c
+Longin_LIBS += $(EPICS_BASE_IOC_LIBS)
+
+#=============================
+# Build the IOC application
+
+PROD_IOC = NewRT
+# NewRT.dbd will be created and installed
+DBD += NewRT.dbd
+
+# NewRT.dbd will be made up from these files:
+NewRT_DBD += base.dbd
+
+# Include dbd files from all support applications:
+NewRT_DBD += Longin.dbd
+
+# Add all the support libraries needed by this IOC
+#NewRT_LIBS += xxx
+
+# NewRT_registerRecordDeviceDriver.cpp derives from NewRT.dbd
+NewRT_SRCS += NewRT_registerRecordDeviceDriver.cpp
+
+# Build the main IOC entry point on workstation OSs.
+NewRT_SRCS_DEFAULT += NewRTMain.cpp
+NewRT_SRCS_vxWorks += -nil-
+
+# Add support from base/src/vxWorks if needed
+#NewRT_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+
+# Finally link to the EPICS Base libraries
+NewRT_LIBS += $(EPICS_BASE_IOC_LIBS)
+NewRT_LIBS += Longin   # add the line
+#===========================
+include $(TOP)/configure/RULES
+#----------------------------------------
+#  ADD RULES AFTER THIS LINE
+
+
+
+Longin.db  (其实这个名字用Longin已经不太合适了。)
+*******************
+record(longin, New-RT-Dev-Support:Test){
+        field(DESC, "long input test")
+        field(SCAN, "1 second")
+        field(INP, "@Hello World")
+        field(DTYP, "New-RT-Device-Support")
+        field(FLNK, "New-RT-Dev-Support:Ai")
+}
+
+record(ai, New-RT-Dev-Support:Ai){
+        field(DESC, "analog input test")
+        field(SCAN, "1 second")
+        field(INP, "@Hello")
+        field(DTYP, "New-RT-Device-Support")
+}
+
+Dd/Makefile
+******************************
+TOP=../..
+include $(TOP)/configure/CONFIG
+#----------------------------------------
+#  ADD MACRO DEFINITIONS AFTER THIS LINE
+
+#----------------------------------------------------
+#  Optimization of db files using dbst (DEFAULT: NO)
+#DB_OPT = YES
+
+#----------------------------------------------------
+# Create and install (or just install) into <top>/db
+# databases, templates, substitutions like this
+#DB += xxx.db
+DB += Longin.db
+#----------------------------------------------------
+# If <anyname>.db template is not named <anyname>*.template add
+# <anyname>_template = <templatename>
+
+include $(TOP)/configure/RULES
+#----------------------------------------
+#  ADD RULES AFTER THIS LINE
+
+
