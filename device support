@@ -1,4 +1,5 @@
 https://epics.anl.gov/tech-talk/2015/msg01276.php   这是一个多fun的例子
+不过这个例子里面没有用int_record。避开了这个问题，自己遇到了init_record重复的问题，没有解决好
 http://www-linac.kek.jp/epics/second/   kek例子 (经过测试，其实并不一定按照例子中的-p,-a,直接tit的顺序就够了。)
 http://blog.csdn.net/creazyapple/article/details/17240145     blog 简述
 
