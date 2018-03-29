@@ -1,4 +1,9 @@
-1 except the txt said
+
+1. except the txt said in KohzuARIES
+如果要从xxx 启动的话，修改xxxApp/src/Makefile的文件，在
+ifdef MOTOR 中增加相应的部分
+这个地方 TXT里面米有说，但是如果不加这部分的话，会一直提示 can't dtyp to "ARIES"
+
 2. copy from the web or patch
 
 
