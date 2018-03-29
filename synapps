@@ -1,2 +1,4 @@
-1 devseqxxxx.dbd  这个错误，估计需要，更新一下seq的版本，比如synapps5_8配seq2-2-3
+Aries 的问题有专门的的ARIES文件看
+
+devseqxxxx.dbd  这个错误，估计需要，更新一下seq的版本，比如synapps5_8配seq2-2-3
 特别注意的是：新下载的seq都是2.2.2这种名字，切忌用.，全部改成-
