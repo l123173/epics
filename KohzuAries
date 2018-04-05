@@ -4,8 +4,29 @@
 ifdef MOTOR 中增加相应的部分
 这个地方 TXT里面米有说，但是如果不加这部分的话，会一直提示 can't dtyp to "ARIES"
 
-2. copy from the web or patch
+2. 在ioc中输入   dbior drvARIES  可以查看相应的。
 
+3. 如果连接不上，注意看看是不是防火墙不通。
+
+4.the most importatnt！！！
+
+ARIESSetup(4, 5)
+ARIESConfig(0, "L0", 0)
+可以连接上
+
+ARIESSetup(4, 5) 
+ARIESConfig(4, "L0", 0)
+就会失败
+
+reason：
+setup的第一个数字是说有多少个controller，一般Aries就那一个主控，所以用1就行了，用0则代表16（16进制）
+controller的编号从0--15。
+config 中的第一个数字是指的哪一个controller被设置了（controller的编号是从0开始啊），所以上面之所以失败可能是因为编号小于该有的值了
+
+
+
+
+2. copy from the web or patch(2这个好像不是的，不太要管他！)
 
 motor/MotorExApp/WithAsyn/Makefile
 ***********************************
