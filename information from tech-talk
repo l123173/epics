@@ -1,0 +1,27 @@
+
+When you ssh to the device you are implicitly using port 22. 
+You don’t want to use port 5064, that is for EPICS TCP messages, not for communicating with the device.
+//////////////
+EPICS_CA_AUTO_ADDR_LIST=YES
+EPICS_CA_ADDR_LIST="192.168.163.97 192.168.163.255"
+///////////////
+What is the network configuration of the IOC machine and the medm machine?  Are they running on the 
+
+1) Same computer
+2) Different computer on same subnet
+3) Different computers on different subnets?
+
+If 1) or 2) then you should not set the EPICS_CA_ADDR_LIST environment variables at all, the defaults should work.
+If 2) then you may need to disable iptables on both machines.
+
+///////////////
+No route to host qusetion
+
+caget uses ports 5064 and 5065 by default.  It uses UDP to locate which IOC has the PV, and then TCP to read the value.
+
+
+The fact that you can ping makes it sound like there is a firewall somewhere blocking ports 5064 or 5065.  Those both need to be open for both UDP and TCP.
+
+///////
+https://epics.anl.gov/tech-talk/2012/msg01216.php
+尤其是第三个里面，有讲到一些东西，看看
