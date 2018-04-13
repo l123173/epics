@@ -122,6 +122,9 @@ fi
 yum -y install xorg-x11-xbitmaps libXt-devel libtermcap-devel libXp-devel xz-devel flex autoconf automake giflib giflib-devel libXtst-devel libX* gcc-c++ perl-ExtUt* perl-Pod-Checker readline-devel
 #|tee -a ~/install_information.txt
 
+yum install libXt-devel     error:miss X11.h
+yum install openmotif-devel   or openmotif  or openmotif-dev     error: miss Xm.h    this was happen in centos
+
 #执行
 re2c
 change_yum
