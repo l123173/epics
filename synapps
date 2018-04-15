@@ -7,3 +7,8 @@ devseqxxxx.dbd  这个错误，估计需要，更新一下seq的版本，比如s
 
 scan :
 libscanProgress.a   need make seq first
+
+
+areadector:
+hdf5 里面需要填写的是prefix的文件位置（这个位置最好只有bin，include，lib等），不要安装在源文件里头。
+CONFIG/release——SITE——PATH等 应该都不需要的！
