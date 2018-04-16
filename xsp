@@ -1,0 +1,8 @@
+xspress master那个文件
+修改REASE文件，iocs里面的也改。
+
+然后xpress master/iocs/xspress3IOC/xspress3App/src/Makefile里面增加
+SYS_PROD_LIBS += pthread （否则什么@ gcc3.5.4   miss）
+位置放在Makefile的最后面。
+还要增加了 
+SYS_PROD_LIBS += rt（否则什么 timer@ gcc3.5.4   miss）
