@@ -4,7 +4,8 @@ openmotif
 http://blog.csdn.net/qiaoliang328/article/details/4786075
 how to install openmotiuf in fedora
 
-
-
 https://epics.anl.gov/tech-talk/2007/msg00531.php
 关于/dev/ttyS0没有权限的问题。
+
+https://epics.anl.gov/tech-talk/2013/msg01430.php
+读取autosave存储的二进制文件的问题
