@@ -1,0 +1,6 @@
+Install
+* 类似 xxxxx   require pyldap>=2.4.15啊 这一类的
+- 更新一下repo ，yum的repo
+
+* Requirement already satisfied (use --upgrade to upgrade): pyepics in /usr/lib/python2.7/site-packages
+- 删除这个文件就行
