@@ -1,0 +1,5 @@
+created by lyx in 2018.8.18
+
+下载base（3.15以后好像直接可以make，不会出错）。
+下载extensions，修改release，下载msi解压缩到src中，修改makefile，编译。
+修改环境变量 path epics_host_arch
