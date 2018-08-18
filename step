@@ -3,3 +3,10 @@ created by lyx in 2018.8.18
 下载base（3.15以后好像直接可以make，不会出错）。
 下载extensions，修改release，下载msi解压缩到src中，修改makefile，编译。
 修改环境变量 path epics_host_arch（注意不要在变量后面随便加空格，会不识别，比如source以后，如果command not found就是）
+
+安装pip 
+yum install python-pip
+yum install epel-release
+pip install --upgrade pip
+如果报443错误，是超时，用这个再看看
+pip --default-timeout=100 install -U pip
