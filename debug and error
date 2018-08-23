@@ -1,0 +1,5 @@
+epicsPrtEnvParams at the IOC prompt
+
+printenv | grep EPICS at the terminal
+
+如果开启一个本机终端（非IOC），caget pv，得到“cannot connect to lyx:ai3”，则是EPICS_CA_ADDR_LIST 没有设置，设置成localhost即可
