@@ -153,6 +153,4 @@ Done
 base错误
 error：epicsOnce.cpp   换版本，不要用3.14.12.1 ，换一个相近的
 
-有任何发现的错误和问题，可以联系liangyx@ihep.ac.cn解决。
-
-梁雅翔 2016.12.27
+2016.12.27
