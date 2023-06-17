@@ -1,3 +1,5 @@
+dbf update
+dnf -y install "epel-release"
 sudo yum install groupinstall "Development Tools"
 Type:python build_xspress.py extrct configure
 
@@ -7,3 +9,8 @@ sudo install perl
 
 EPICS_HOST_ARCH
 so:sudo -y yum install perl && make
+
+
+Error:rpcgen not found or rpc.h
+sudo yum install rpcgen  &&   dnf install glibc-utils
+ libtirpc, you will also have to uncomment this line in configure/CONFIG_SITE: # TIRPC=YES
