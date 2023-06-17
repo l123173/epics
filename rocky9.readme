@@ -1,0 +1,9 @@
+sudo yum install groupinstall "Development Tools"
+Type:python build_xspress.py extrct configure
+
+Type:sudo make(base)
+Error:Can't locate FindBin.pm in @INC (you may need to install the FindBin module)
+sudo install perl
+
+EPICS_HOST_ARCH
+so:sudo -y yum install perl && make
